@@ -4,10 +4,7 @@ class Fraction(object):
         self.numerator = numerator
         self.denominator = denominator
 
-    def gcd(a, b):
-        if a == 0 and b ==0:
-            return 0
-        
+    def gcd(a, b):      
         if a == 0 or b == 0:
             return 0
 
