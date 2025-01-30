@@ -5,18 +5,24 @@ class Fraction(object):
         self.denominator = denominator
 
     def gcd(a, b):
-        if a or b != 0:
-            #TODO
-        pass
+        if a == 0 and b ==0:
+            return 0
+        
+        if a == 0 or b == 0:
+            return 0
+
+        while b != 0:
+            a, b = b, a % b
+
+        return abs(a)
 
     def get_numerator(self):
-        #TODO
-        pass
+        return str(self.numerator)
 
     def get_denominator(self):
-        #TODO
-        pass
+        return str(self.denominator)
 
     def get_fraction(self):
-        #TODO
-        pass
+        if self.denominator == 1:
+            return str(self.numerator)
+        return f"{self.numerator}/{self.denominator}"
