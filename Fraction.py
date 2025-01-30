@@ -3,13 +3,16 @@ class Fraction(object):
     def __init__(self, numerator=0, denominator=1):
         self.numerator = numerator
         self.denominator = denominator
-
-    def gcd(a, b):      
+    
+    @staticmethod
+    def gcd(a, b):
+        # GCD is 0 if either number is 0
         if a == 0 or b == 0:
             return 0
-
+        
+        # Continuously divide remainders with each other
         while b != 0:
-            a, b = b, a % b
+            a, b = b, a%b
 
         return abs(a)
 
