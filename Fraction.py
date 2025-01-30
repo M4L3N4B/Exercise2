@@ -5,9 +5,16 @@ class Fraction(object):
         self.denominator = denominator
 
     def gcd(a, b):
-        if a or b != 0:
-            #TODO
-        pass
+        if a == 0 and b ==0:
+            return 0
+        
+        if a == 0 or b == 0:
+            return 0
+
+        while b != 0:
+            a, b = b, a % b
+
+        return abs(a)
 
     def get_numerator(self):
         #TODO
