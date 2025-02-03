@@ -11,7 +11,7 @@ class Fraction(object):
         if self._denominator == 0:
             raise ZeroDivisionError("Denominator cannot be 0")
         else:
-            self._lowest_term()
+            self._lowest_term() # In preparation for accessor methods, which should return values in lowest terms
     
     def _find_fraction_from_string(self, fraction_string):
         # Returns 0, 1 for invalid strings
