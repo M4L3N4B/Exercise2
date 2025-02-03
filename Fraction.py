@@ -5,6 +5,7 @@ class Fraction(object):
         self.denominator = denominator
 
     def gcd(a, b):
+        #TODO
         pass
 
     def get_numerator(self):
