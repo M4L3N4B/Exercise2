@@ -5,8 +5,6 @@ class Fraction(object):
         self.denominator = denominator
 
     def gcd(a, b):
-        if a or b != 0:
-            #TODO
         pass
 
     def get_numerator(self):
