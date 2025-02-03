@@ -58,3 +58,4 @@ class Fraction(object):
             return str(self.numerator)
         
         return f"{self.numerator}/{self.denominator}"
+
