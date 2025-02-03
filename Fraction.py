@@ -2,7 +2,7 @@ class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
         if isinstance(numerator, str):
-            self._numerator, self._denominator = self.find_fraction_from_string(numerator)
+            self._numerator, self._denominator = self._find_fraction_from_string(numerator)
         elif isinstance(numerator, float) or isinstance(denominator, float):
             self._numerator, self._denominator = 0, 1   
         else:
@@ -11,7 +11,7 @@ class Fraction(object):
         if self._denominator == 0:
             raise ZeroDivisionError("Denominator cannot be 0")
         else:
-            self.lowest_term()
+            self._lowest_term()
     
     def _find_fraction_from_string(self, fraction_string):
         fraction_string = fraction_string.strip()
