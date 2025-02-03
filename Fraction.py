@@ -40,12 +40,12 @@ class Fraction(object):
         gcd_value = self.gcd(abs(self.numerator), abs(self.denominator))
         
         if gcd_value != 0:
-            self.numerator = self.numerator // gcd_value
-            self.denominator = self.denominator // gcd_value
+            self.numerator //= gcd_value
+            self.denominator //= gcd_value
             
         if self.denominator < 0:
-            self.numerator = -self.numerator
-            self.denominator = -self.denominator
+            self.numerator *= -1
+            self.denominator *= -1
 
     def get_numerator(self):
         return str(self.numerator)
