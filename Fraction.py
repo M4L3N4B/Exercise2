@@ -26,9 +26,15 @@ class Fraction(object):
         except ValueError:
             return 0, 1
     
+    @classmethod
     def gcd(a, b):
-        #TODO
-        pass
+        if a == 0 or b == 0:
+            return 0
+        
+        while b != 0:
+            a, b = b, a%b
+
+        return abs(a)
 
     def get_numerator(self):
         #TODO
