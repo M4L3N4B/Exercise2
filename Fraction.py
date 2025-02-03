@@ -2,22 +2,22 @@ class Fraction(object):
 
     def __init__(self, numerator=0, denominator=1):
         if isinstance(numerator, str):
-            self.numerator, self.denominator = self.find_fraction_from_string(numerator)
+            self._numerator, self._denominator = self.find_fraction_from_string(numerator)
         elif isinstance(numerator, float) or isinstance(denominator, float):
-            self.numerator, self.denominator = 0, 1   
+            self._numerator, self._denominator = 0, 1   
         else:
-            self.numerator, self.denominator = numerator, denominator
+            self._numerator, self._denominator = numerator, denominator
         
-        if self.denominator == 0:
+        if self._denominator == 0:
             raise ZeroDivisionError("Denominator cannot be 0")
         else:
             self.lowest_term()
     
-    def find_fraction_from_string(self, fraction_string):
+    def _find_fraction_from_string(self, fraction_string):
         fraction_string = fraction_string.strip()
         
         if fraction_string.count('/') != 1:
-            return 0, 1   
+            return 0, 1
         
         try:
             numerator, denominator = fraction_string.split('/')
@@ -26,16 +26,17 @@ class Fraction(object):
         except ValueError:
             return 0, 1
 
-    def lowest_term(self):
-        gcd_value = self.gcd(abs(self.numerator), abs(self.denominator))
+    def _lowest_term(self):
+        # Set numerator and denominator to their lowest terms
+        gcd_value = self.gcd(abs(self._numerator), abs(self._denominator))
         
         if gcd_value != 0:
-            self.numerator //= gcd_value
-            self.denominator //= gcd_value
+            self._numerator //= gcd_value
+            self._denominator //= gcd_value
             
-        if self.denominator < 0:
-            self.numerator *= -1
-            self.denominator *= -1
+        if self._denominator < 0:
+            self._numerator *= -1
+            self._denominator *= -1
 
     @staticmethod
     def gcd(a, b):
@@ -48,13 +49,12 @@ class Fraction(object):
         return abs(a)
 
     def get_numerator(self):
-        return str(self.numerator)
+        return str(self._numerator)
 
     def get_denominator(self):
-        return str(self.denominator)
+        return str(self._denominator)
 
     def get_fraction(self):
-        if self.denominator == 1:
-            return str(self.numerator)
-        
-        return f"{self.numerator}/{self.denominator}"
+        if self._denominator == 1:
+            return str(self._numerator)
+        return f"{self._numerator}/{self._denominator}"
