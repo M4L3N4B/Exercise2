@@ -10,8 +10,7 @@ class Fraction(object):
         
         if self.denominator == 0:
             raise ZeroDivisionError("Denominator cannot be 0")
-
-        if self.denominator != 0:
+        else:
             self.lowest_term()
     
     def find_fraction_from_string(self, fraction_string):
