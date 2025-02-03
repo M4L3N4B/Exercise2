@@ -25,16 +25,6 @@ class Fraction(object):
             return numerator, denominator
         except ValueError:
             return 0, 1
-        
-    @staticmethod
-    def gcd(a, b):
-        if a == 0 or b == 0:
-            return 0
-
-        while b != 0:
-            a, b = b, a % b
-
-        return abs(a)
 
     def lowest_term(self):
         gcd_value = self.gcd(abs(self.numerator), abs(self.denominator))
@@ -47,6 +37,16 @@ class Fraction(object):
             self.numerator *= -1
             self.denominator *= -1
 
+    @staticmethod
+    def gcd(a, b):
+        if a == 0 or b == 0:
+            return 0
+
+        while b != 0:
+            a, b = b, a % b
+
+        return abs(a)
+
     def get_numerator(self):
         return str(self.numerator)
 
@@ -58,4 +58,3 @@ class Fraction(object):
             return str(self.numerator)
         
         return f"{self.numerator}/{self.denominator}"
-
